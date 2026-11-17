@@ -1,0 +1,45 @@
+{
+    "name": "zerofront/module-zero-reviews-ai-assistant",
+    "description": "Zero for Magento Open Source: the AI Assistant's and the Claude connector's tools for Zero Reviews: list and moderate product reviews, and the /reviews command.",
+    "type": "magento2-module",
+    "version": "1.3.11",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Roman Pasichnyk"
+        }
+    ],
+    "homepage": "https://zerofront.dev",
+    "keywords": [
+        "magento",
+        "magento2",
+        "magento-open-source",
+        "zero",
+        "ai",
+        "assistant",
+        "claude",
+        "reviews"
+    ],
+    "require": {
+        "php": "~8.2.0||~8.3.0||~8.4.0",
+        "magento/framework": "103.0.*",
+        "magento/module-catalog": "*",
+        "magento/module-review": "*",
+        "zerofront/module-zero-ai-assistant": "^1.3.11",
+        "zerofront/module-zero-reviews": "^1.3.11"
+    },
+    "replace": {
+        "fixstacks/module-zero-reviews-ai-assistant": "self.version"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Zero\\ReviewsAiAssistant\\": ""
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+
+    The AI Assistant's tools and commands, registered into the pool of Zero_AiAssistant
+    (\Proxy items: a tool whose module is off is never built; `requires` hides it).
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Zero\AiAssistant\Model\Tools">
+        <arguments>
+            <argument name="tools" xsi:type="array">
+                <item name="list_reviews" xsi:type="object" sortOrder="1510">Zero\ReviewsAiAssistant\Model\Tool\ListReviews\Proxy</item>
+                <item name="moderate_reviews" xsi:type="object" sortOrder="1520">Zero\ReviewsAiAssistant\Model\Tool\ModerateReviews\Proxy</item>
+            </argument>
+            <argument name="requires" xsi:type="array">
+                <item name="list_reviews" xsi:type="string">Zero_Reviews</item>
+                <item name="moderate_reviews" xsi:type="string">Zero_Reviews</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Zero\AiAssistant\Model\Commands">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="reviews" xsi:type="array">
+                    <item name="area" xsi:type="string">reviews</item>
+                    <item name="changes" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string">Moderate reviews</item>
+                    <item name="text" xsi:type="string">Show the pending product reviews (list_reviews) and for each say approve or refuse and why; refuse spam, abuse and reviews that aren't about the product. Then propose moderate_reviews for the ones I agree with.</item>
+                    <item name="resource" xsi:type="string">Magento_Review::pending</item>
+                    <item name="sort_order" xsi:type="number">70</item>
+                </item>
+            </argument>
+            <argument name="requires" xsi:type="array">
+                <item name="reviews" xsi:type="string">Zero_Reviews</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
